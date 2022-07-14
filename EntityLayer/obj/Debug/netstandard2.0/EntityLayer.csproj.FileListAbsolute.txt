@@ -1,0 +1,4 @@
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\EntityLayer\obj\Debug\netstandard2.0\EntityLayer.csprojAssemblyReference.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\EntityLayer\obj\Debug\netstandard2.0\EntityLayer.AssemblyInfoInputs.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\EntityLayer\obj\Debug\netstandard2.0\EntityLayer.AssemblyInfo.cs
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\EntityLayer\obj\Debug\netstandard2.0\EntityLayer.csproj.CoreCompileInputs.cache

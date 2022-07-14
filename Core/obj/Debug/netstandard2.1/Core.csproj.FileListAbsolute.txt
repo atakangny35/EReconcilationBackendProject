@@ -1,0 +1,10 @@
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\bin\Debug\netstandard2.1\Core.deps.json
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\bin\Debug\netstandard2.1\Core.dll
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\bin\Debug\netstandard2.1\Core.pdb
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\obj\Debug\netstandard2.1\Core.csproj.AssemblyReference.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\obj\Debug\netstandard2.1\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\obj\Debug\netstandard2.1\Core.AssemblyInfoInputs.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\obj\Debug\netstandard2.1\Core.AssemblyInfo.cs
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\obj\Debug\netstandard2.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\obj\Debug\netstandard2.1\Core.dll
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\Core\obj\Debug\netstandard2.1\Core.pdb

@@ -1,0 +1,15 @@
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\bin\Debug\netstandard2.1\DataAccesLayer.deps.json
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\bin\Debug\netstandard2.1\DataAccesLayer.dll
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\bin\Debug\netstandard2.1\DataAccesLayer.pdb
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\bin\Debug\netstandard2.1\Core.dll
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\bin\Debug\netstandard2.1\EntityLayer.dll
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\bin\Debug\netstandard2.1\Core.pdb
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\bin\Debug\netstandard2.1\EntityLayer.pdb
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.csproj.AssemblyReference.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.AssemblyInfoInputs.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.AssemblyInfo.cs
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.csproj.CoreCompileInputs.cache
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.csproj.CopyComplete
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.dll
+C:\Users\atakan.gunay\source\repos\EReconcilationBackendProject\DataAccesLayer\obj\Debug\netstandard2.1\DataAccesLayer.pdb
