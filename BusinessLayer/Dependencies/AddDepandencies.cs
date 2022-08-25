@@ -70,6 +70,9 @@ namespace BusinessLayer.Dependencies
             builder.RegisterType<EFUserOperatainClaimRepository>().As<IUserOperationClaimDal>();
             builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
 
+            builder.RegisterType<EfRegisterTermsRepository>().As<IRegisterTermsDal>();
+            builder.RegisterType<IRegisterTermsManager>().As<IRegisterTermsService>();
+
             builder.RegisterType<McCacheManager>().As<ICacheManager>();
 
             

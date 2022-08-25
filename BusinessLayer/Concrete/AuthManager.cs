@@ -64,9 +64,11 @@ namespace BusinessLayer.Concrete
             {
                 return new ErrorDataResult<User>(Constances.WrongPassword);
             }
+            //var token = CreateAccesToken(userCheck,)
             return new SuccesDataResult<User>(userCheck, Constances.SuccessLogin);
         }
         [TransactionScopeAspect]
+        
         public IDataResult<UserwithCompanyDto> Register(UserRegisterModel model, string Password, Companies company)
         {
             
@@ -106,7 +108,7 @@ namespace BusinessLayer.Concrete
                 Companyid=company.Id
             };
 
-            SendConfirmEmail(user);
+            //SendConfirmEmail(user);
             return new SuccesDataResult<UserwithCompanyDto>(usercompanydto, Constances.UserRegistered);
         }
 

@@ -36,6 +36,7 @@ namespace DataAccesLayer.Concrete.EntityFramework.Context
         public DbSet<MailParameter> MailParameter { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaim { get; set; }
         public DbSet<MailPattern>  mailPattern { get; set; }
+        public DbSet<RegisterTerms>  RegisterTerm { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
