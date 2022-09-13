@@ -113,11 +113,24 @@ namespace BusinessLayer.Concrete
             return new SuccesDataResult<AccountReconcillation>(accountReconcillationDal.Getitem(x => x.Id == id));
         }
 
+        public int Getcount(int currencyaccountid)
+        {
+           return accountReconcillationDal.GetCount(x=>x.CuurencyAccountId == currencyaccountid);
+        }
+
         [CacheAspect(60)]
+        [SecuredOperations("IAccountReconcillationService.Get,Admin")]
         public IDataResult<List<AccountReconcillation>> GetList(int companyid)
         {
             return new SuccesDataResult<List<AccountReconcillation>>(accountReconcillationDal.GetList(x => x.Companyid == companyid));
         }
+        [CacheAspect(60)]
+        [SecuredOperations("IAccountReconcillationService.Get,Admin")]
+        public IDataResult<List<AccountReconcillation>> GetListByCurrencyAcoountId(int currencyaccountid)
+        {
+            return new SuccesDataResult<List<AccountReconcillation>>(accountReconcillationDal.GetList(x => x.CuurencyAccountId == currencyaccountid));
+        }
+
         [SecuredOperations("IAccountReconcillationService.crud,Admin")]
         [RemoveCacheAspect("IAccountReconcillationService.Get")]
         public IResult Update(AccountReconcillationUpdateDto accountReconcillationUpdateDto)

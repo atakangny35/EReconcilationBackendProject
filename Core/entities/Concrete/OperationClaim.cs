@@ -11,6 +11,7 @@ namespace Core.entities.Concrete
         public string Name { get; set; }
         public DateTime AddedTime { get; set; }
         public bool  IsActive { get; set; }
+        public string Description { get; set; }
 
         public ICollection<UserOperationClaim> UserOperationClaim { get; set; }
         public ICollection<User>  Users { get; set; }

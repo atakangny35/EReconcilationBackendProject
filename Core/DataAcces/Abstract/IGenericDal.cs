@@ -15,5 +15,6 @@ namespace Core.DataAcces.Abstract
         List<T> GetList(Expression<Func<T,bool>> filter = null);
         T Getitem(Expression<Func<T, bool>> filter);
         Task <T> Get(int id);
+        int GetCount(Expression<Func<T, bool>> filter);
     }
 }

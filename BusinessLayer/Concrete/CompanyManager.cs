@@ -74,6 +74,18 @@ namespace BusinessLayer.Concrete
                 ? new SuccesDataResult<UserCompany>(result)
                 : new ErrorDataResult<UserCompany>(Constances.UserCompanyNotFound);
         }
+
+        public IDataResult<UserCompanywithCompanyName> GetUserCompanywithcompanyName(int userId)
+        {
+            
+            var userCompany = userCompanyDal.Getitem(x=>x.UserId==userId);
+            string companyName = companyDal.Getitem(x => x.Id == userCompany.CompanyId).Name;
+            UserCompanywithCompanyName result = new UserCompanywithCompanyName { userCompany = userCompany, CompanyName = companyName };
+            return result is not null
+                ? new SuccesDataResult<UserCompanywithCompanyName>(result)
+                : new ErrorDataResult<UserCompanywithCompanyName>(Constances.UserCompanyNotFound);
+        }
+
         [ValidationAspect(typeof(CompanyValidator))]
         public IResult Update(UpdateCompanyDto  updateCompanyDto)
         {

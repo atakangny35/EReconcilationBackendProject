@@ -18,7 +18,7 @@ namespace BusinessLayer.Abstract
         IDataResult<User> Login(UserLoginModel model);
         IResult UserExists(string email);
         IResult CompanyExists(Companies company);
-        IDataResult<AccessToken> CreateAccesToken(User user,int companyId);
+        IDataResult<AccessToken> CreateAccesToken(User user,int companyId,string CompanyName);
         IResult SendConfirm(User user);
     }
 

@@ -15,9 +15,9 @@ namespace BusinessLayer.Abstract
         IResult AddToExcel(string FilePath,int companyId);
         IResult Update(CurrencyAccount currencyAccount);
         IResult Delete(int id);
-        IDataResult<CurrencyAccount> Get(int id);
+        IDataResult<CurrencyAccountShowModel> Get(int id);
         IDataResult<CurrencyAccount> GetByCode(string code, int companyid);
-        IDataResult<List<CurrencyAccount>> GeList(int companyid);
+        IDataResult<List<CurrencyAccountShowModel>> GeList(int companyid);
 
     }
 }

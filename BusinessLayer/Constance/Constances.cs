@@ -33,5 +33,7 @@ namespace BusinessLayer.Constance
         public static string UpdatedCurrencyAccount = "Kayıt Başarılı";
         public static string EntityDeleted = "Kayıt Başarıyla silindi";
         public static string EntityUpdated = "Kayıt Başarıyla GÜncellendi";
+        public static string CurrencyHasReconcilation = "Mutabakata Sahip Cari silinemez";
+        public static string CurrencyHasBabsReconcilation = "BaBs Mutabakata Sahip Cari silinemez";
     }
 }

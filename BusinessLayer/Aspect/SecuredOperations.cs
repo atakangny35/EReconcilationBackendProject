@@ -25,6 +25,7 @@ namespace BusinessLayer.Aspect
 
         protected override void Before(IInvocation invocation)
         {
+
             var roleClaims = httpContextAccessor.HttpContext.User.ClaimRoles();
             foreach (var role in roles)
             {

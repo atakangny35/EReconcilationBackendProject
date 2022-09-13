@@ -110,6 +110,12 @@ namespace BusinessLayer.Concrete
         {
             return new SuccesDataResult<BabsReconcilation>(babsReconcilationDal.Getitem(x => x.Id == id));
         }
+
+        public int Getcount(int currencyaccountid)
+        {
+            return babsReconcilationDal.GetCount(x=>x.CurrencyAccountId==currencyaccountid);
+        }
+
         [CacheAspect(60)]
         public IDataResult<List<BabsReconcilation>> GetList(int companyid)
         {

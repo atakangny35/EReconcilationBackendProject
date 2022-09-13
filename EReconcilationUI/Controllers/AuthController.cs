@@ -43,7 +43,7 @@ namespace EReconcilationUI.Controllers
                 return BadRequest(CompanyExists.Message);
             }
             var registerResult = authService.Register(registerModel, registerModel.Password,company);
-            var token = authService.CreateAccesToken(registerResult.Data,registerResult.Data.Companyid);
+            var token = authService.CreateAccesToken(registerResult.Data,registerResult.Data.Companyid,company.Name);
             if (registerResult.Success)
             {
                 return Ok(token);
@@ -59,9 +59,9 @@ namespace EReconcilationUI.Controllers
                 return BadRequest(userExists.Message);
             }
             UserRegisterModel registerModel = new UserRegisterModel { Email = userRegisterModel.Email, Name = userRegisterModel.Name, Password = userRegisterModel.Password };
-            
+            var company = companyService.GetById(userRegisterModel.companyId);
             var registerResult = authService.RegisterAccount(registerModel, userRegisterModel.Password,userRegisterModel.companyId);
-            var token = authService.CreateAccesToken(registerResult.Data, userRegisterModel.companyId);
+            var token = authService.CreateAccesToken(registerResult.Data, userRegisterModel.companyId,company.Data.Name);
             if (registerResult.Success)
             {
                 return Ok(token);
@@ -81,8 +81,8 @@ namespace EReconcilationUI.Controllers
             {
                 return BadRequest("Kullanıcı onayı gerçekleştirilmeli yöneticinize başvurunuz");
             }
-            var userCompany = companyService.GetUserCompany(user.Data.Id);
-            var tokenResult = authService.CreateAccesToken(user.Data, userCompany.Data.CompanyId);
+            var userCompanywithCompanyId = companyService.GetUserCompanywithcompanyName(user.Data.Id);
+            var tokenResult = authService.CreateAccesToken(user.Data, userCompanywithCompanyId.Data.userCompany.CompanyId,userCompanywithCompanyId.Data.CompanyName);
 
             if (tokenResult.Success)
             {
@@ -104,10 +104,11 @@ namespace EReconcilationUI.Controllers
             return BadRequest(dataResult.Message);
         }
 
-        [HttpGet("sendConfirmMail")]
-        public IActionResult SendConfirmEmail(int userid)
+        [HttpPost("sendconfirmmail")]
+        public IActionResult SendConfirmEmail(string emaillll)
         {
-            var resultuser = userService.GetById(userid);
+            var user = userService.GetByMail(emaillll);
+            var resultuser = userService.GetById(user.Id);
 
             if (!resultuser.Success)
             {

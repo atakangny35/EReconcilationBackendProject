@@ -11,6 +11,7 @@ namespace Core.Utilities.interceptors
     public class methodInterceptors:MethotIterceptionBaseAttribute
     {
         protected virtual void Before (IInvocation invocation) { }
+
         protected virtual void After (IInvocation invocation) { }
         protected virtual void Exception (IInvocation invocation,Exception e) { }
         protected virtual void Success (IInvocation invocation) { }
@@ -25,6 +26,7 @@ namespace Core.Utilities.interceptors
             }
             catch (Exception e)
             {
+                IsSuccess = false;
                 Exception(invocation, e);
                 throw;
                 

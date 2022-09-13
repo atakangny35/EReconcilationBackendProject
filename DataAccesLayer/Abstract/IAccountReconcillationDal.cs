@@ -10,5 +10,6 @@ namespace DataAccesLayer.Abstract
 {
     public interface IAccountReconcillationDal:IGenericDal<AccountReconcillation>
     {
+        //int Getcount(int currencyAccountId);
     }
 }

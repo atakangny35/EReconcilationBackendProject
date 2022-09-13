@@ -59,6 +59,6 @@ namespace BusinessLayer.Concrete
         {
             userDal.Update(user);
             return new SuccessResult(Constances.MailConfirmed);
-        }
+        }   
     }
 }

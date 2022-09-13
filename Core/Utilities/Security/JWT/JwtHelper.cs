@@ -27,12 +27,12 @@ namespace Core.Utilities.Security.JWT
 
 
 
-        public AccessToken CreateToken(User user, List<OperationClaim> operationClaims, int companyid)
+        public AccessToken CreateToken(User user, List<OperationClaim> operationClaims, int companyid, string companyName)
         {
             _accesTokenExpireDate = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpireDate);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signinCredentials = SigningCredentialsHelper.CreateSigningCredential(securityKey);
-            var jwt = CreateJwtSecurityToken(_tokenOptions, user, signinCredentials, operationClaims, companyid);
+            var jwt = CreateJwtSecurityToken(_tokenOptions, user, signinCredentials, operationClaims, companyid, companyName);
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwt);
 
@@ -44,17 +44,30 @@ namespace Core.Utilities.Security.JWT
             };
         }
         public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, User user, SigningCredentials signingCredentials,
-                List<OperationClaim> operationClaims, int companyid)
+                List<OperationClaim> operationClaims, int companyid,string companyName)
         {
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(SetClaims(user, operationClaims, companyid, companyName));
+            var securityTokenDescriptor =  new SecurityTokenDescriptor()
+            {
+                Issuer = tokenOptions.Issuer,
+                Audience = tokenOptions.Audience,
+                SigningCredentials = signingCredentials,
+                Expires = _accesTokenExpireDate,
+                NotBefore = DateTime.Now,
+                Subject = claimsIdentity
+            };
+            var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+            var jwt2 = jwtSecurityTokenHandler.CreateJwtSecurityToken(securityTokenDescriptor);
+            /*
             var jwt = new JwtSecurityToken(issuer: tokenOptions.Issuer, audience: tokenOptions.Audience, expires: _accesTokenExpireDate,
                                            notBefore: DateTime.Now, claims: SetClaims(user, operationClaims, companyid),
                                            signingCredentials: signingCredentials
-                                         );
+                                         );*/
 
-            return jwt;
+            return jwt2;
 
         }
-        private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims, int companyId)
+        private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims, int companyId,string companyName)
         {
              
 
@@ -65,7 +78,7 @@ namespace Core.Utilities.Security.JWT
             claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
             claims.Add(new Claim(ClaimTypes.Anonymous, companyId.ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
-
+            claims.Add(new Claim(ClaimTypes.Country, companyName));
             claims.AddName($"{user.Name}");
 
             claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());

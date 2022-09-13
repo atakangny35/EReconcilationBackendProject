@@ -10,7 +10,15 @@ using System.Threading.Tasks;
 
 namespace DataAccesLayer.Concrete.EntityFramework
 {
-  public  class EfAccountReconcillationRepository: EfGenericRepository<AccountReconcillation, ApplicationDbContext>, IAccountReconcillationDal
-    {
+    public class EfAccountReconcillationRepository : EfGenericRepository<AccountReconcillation, ApplicationDbContext>, IAccountReconcillationDal
+    { /*
+        public int Getcount(int currencyAccountId)
+        {
+           using(var context = new ApplicationDbContext())
+            {
+               return context.AccountReconcillation.Where(x => x.CuurencyAccountId == currencyAccountId).Count();
+            }
+        }
+        */
     }
 }

@@ -20,5 +20,6 @@ namespace BusinessLayer.Abstract
         IDataResult <UserCompany> GetUserCompany(int userId);
         IResult CompanyExists(Companies company);
         IResult UserCompanyAdd(int companyid,int userId);
+        IDataResult<UserCompanywithCompanyName> GetUserCompanywithcompanyName(int userId);
     }
 }

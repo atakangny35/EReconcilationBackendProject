@@ -4,6 +4,7 @@ using Core.entities.Concrete;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
 using DataAccesLayer.Abstract;
+using EntityLayer.DTOs.OperationClaims;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,11 @@ namespace BusinessLayer.Concrete
         public IDataResult<List<UserOperationClaim>> GetList(int userId, int companyId)
         {
            return new SuccesDataResult<List<UserOperationClaim>>(_userOperatClaimDal.GetClaims(userId, companyId));
+        }
+
+        public IDataResult<List<UserOperationClaimDto>> GetListDto(int userid, int companyId)
+        {
+            return new SuccesDataResult<List<UserOperationClaimDto>>(_userOperatClaimDal.GetListDto(userid, companyId));
         }
 
         public IResult Update(UserOperationClaim UserOperationClaim)

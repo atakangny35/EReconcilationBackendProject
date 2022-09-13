@@ -16,8 +16,9 @@ namespace BusinessLayer.Abstract
         IResult Update(AccountReconcillationUpdateDto accountReconcillationUpdateDto);
         IResult Delete(int id);
         IDataResult<AccountReconcillation> getById(int id);
-        
+        int Getcount(int currencyaccountid);
         IDataResult<List<AccountReconcillation>> GetList(int companyid);
+        IDataResult<List<AccountReconcillation>> GetListByCurrencyAcoountId(int currencyaccountid);
     }
 }
  

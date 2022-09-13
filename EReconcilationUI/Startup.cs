@@ -86,12 +86,13 @@ namespace EReconcilationUI
             if (true)
             {
                 app.UseDeveloperExceptionPage();
+                
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EReconcilationUI v1"));
             }
             
             app.UseHttpsRedirection();
-
+           // app.UseErrorMiddleware();
             app.UseRouting();
             app.UseCors("AllowOrigin");
             app.UseAuthentication();

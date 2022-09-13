@@ -45,10 +45,10 @@ namespace BusinessLayer.Concrete
             return result.Success ==false ? new ErrorResult(Constances.CompanyExists) : new SuccessResult();
         }
 
-        public IDataResult<AccessToken> CreateAccesToken(User user,int companyId)
+        public IDataResult<AccessToken> CreateAccesToken(User user,int companyId,string CompanyName)
         {
             var claims = userService.GetClaims(user, companyId);
-            var accessToken = tokenHelper.CreateToken(user, claims, companyId);
+            var accessToken = tokenHelper.CreateToken(user, claims, companyId, CompanyName);
             return new SuccesDataResult<AccessToken>(accessToken);
         }
 
@@ -108,7 +108,7 @@ namespace BusinessLayer.Concrete
                 Companyid=company.Id
             };
 
-            //SendConfirmEmail(user);
+            SendConfirmEmail(user);
             return new SuccesDataResult<UserwithCompanyDto>(usercompanydto, Constances.UserRegistered);
         }
 
@@ -120,7 +120,7 @@ namespace BusinessLayer.Concrete
             string body = mailTemplate.Data.Value;
             body = body.Replace("{{title}}", "Kullanıcı Onayı");
             body = body.Replace("{{titleMessage}}", "Kayıt işlemini tamamlamak içi aşağıdaki adımları takip ediniz");
-            body = body.Replace("{{message}}", "Sayın " + user.Name + " Sistem kaydı başarılı,Kaydını onaylamak için aşağıdaki linke tıklayınız.");
+            body = body.Replace("{{message}}", "Sayın " + user.Name + " Sistem kaydı başarılı,Kaydı onaylamak için aşağıdaki linke tıklayınız.");
             body = body.Replace("{{linkDescription}}", LinkDescription);
             body = body.Replace("{{link}}", Link);
             var mailParameter = mailParameterService.Get(1);

@@ -51,8 +51,14 @@ namespace Core.DataAcces.Concrete
                
             }
         }
-        
-    
+
+        public int GetCount(Expression<Func<T, bool>> filter)
+        {
+            using( var context = new TContext())
+            {
+                return context.Set<T>().Where(filter).Count();
+            }
+        }
 
         public T Getitem(Expression<Func<T, bool>> filter)
         {

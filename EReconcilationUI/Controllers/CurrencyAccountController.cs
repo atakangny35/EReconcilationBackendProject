@@ -69,7 +69,7 @@ namespace EReconcilationUI.Controllers
             }
             return BadRequest(result.Message);
         }
-        [HttpPost("delete")]
+        [HttpDelete("delete")]
         public IActionResult Delete(int id)
         {
             var result = currencyAccountService.Delete(id);
