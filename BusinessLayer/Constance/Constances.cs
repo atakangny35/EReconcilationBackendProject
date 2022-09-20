@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Constance
 {
-   public static class Constances
+    public static class Constances
     {
         public static string AddedCompany = "Kayıt Başarılı";
         public static string UserNotFOund = "Kişi bulunamadı!";
@@ -35,5 +35,6 @@ namespace BusinessLayer.Constance
         public static string EntityUpdated = "Kayıt Başarıyla GÜncellendi";
         public static string CurrencyHasReconcilation = "Mutabakata Sahip Cari silinemez";
         public static string CurrencyHasBabsReconcilation = "BaBs Mutabakata Sahip Cari silinemez";
+        public static List<string> UnauthorizedClaims= new List<string>() {"Admin","MailParameter","MailTemplete","Operationclaim.crud" };
     }
 }

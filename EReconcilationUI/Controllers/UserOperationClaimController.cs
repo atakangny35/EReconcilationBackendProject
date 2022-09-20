@@ -60,7 +60,7 @@ namespace EReconcilationUI.Controllers
             }
             return BadRequest(result.Message);
         }
-        [HttpGet("getgistdto")]
+        [HttpGet("getlistdto")]
         public IActionResult GetListDto(int userid,int companyid)
         {
             var result = userOperationClaimService.GetListDto(userid,companyid);

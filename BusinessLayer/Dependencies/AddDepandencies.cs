@@ -26,6 +26,8 @@ namespace BusinessLayer.Dependencies
             builder.RegisterType<CompanyManager>().As<ICompanyService>();
             builder.RegisterType<EfCompanyRepository>().As<ICompanyDal>();
 
+
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
 
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();

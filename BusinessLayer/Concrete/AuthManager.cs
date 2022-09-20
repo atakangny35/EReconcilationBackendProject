@@ -27,8 +27,11 @@ namespace BusinessLayer.Concrete
         private readonly IMailParameterService   mailParameterService;
         private readonly IMailService   mailService;
         private readonly IMailPatternService mailPatternService;
-        public AuthManager(IUserService _userService, ITokenHelper _tokenHelper, ICompanyService _companyService, 
-            IMailParameterService _mailParameterService, IMailService _mailService, IMailPatternService _mailPatternService)
+        private readonly IOperationClaimService operationClaimService;
+        private readonly IUserOperationClaimService userOperationClaimService;
+        public AuthManager(IUserService _userService, ITokenHelper _tokenHelper, ICompanyService _companyService,
+            IMailParameterService _mailParameterService, IMailService _mailService, IMailPatternService _mailPatternService, IOperationClaimService
+            _operationClaimService, IUserOperationClaimService _userOperationClaimService)
         {
             userService = _userService;
             tokenHelper = _tokenHelper;
@@ -36,7 +39,8 @@ namespace BusinessLayer.Concrete
             mailParameterService = _mailParameterService;
             mailService = _mailService;
             mailPatternService = _mailPatternService;
-
+            operationClaimService = _operationClaimService;
+            userOperationClaimService = _userOperationClaimService;
         }
 
         public IResult CompanyExists(Companies company)
@@ -108,6 +112,25 @@ namespace BusinessLayer.Concrete
                 Companyid=company.Id
             };
 
+            var operataipnClaimList = operationClaimService.GetList();
+
+
+            foreach (var claim in operataipnClaimList.Data)
+            {
+                if (!Constances.UnauthorizedClaims.Contains(claim.Name))
+                {
+                    UserOperationClaim userOperationClaim = new UserOperationClaim
+                    {
+                        CompanyId = company.Id,
+                        IsActive = true,
+                        OperationClaimId = claim.Id,
+                        Userid = user.Id
+                    };
+                    userOperationClaimService.Add(userOperationClaim);
+                }
+            
+            }
+
             SendConfirmEmail(user);
             return new SuccesDataResult<UserwithCompanyDto>(usercompanydto, Constances.UserRegistered);
         }
@@ -155,6 +178,24 @@ namespace BusinessLayer.Concrete
             };
             userService.Add(user);
             companyService.UserCompanyAdd(companyId, user.Id);
+            var operataipnClaimList = operationClaimService.GetList();
+
+
+            foreach (var claim in operataipnClaimList.Data)
+            {
+                if (!Constances.UnauthorizedClaims.Contains(claim.Name))
+                {
+                    UserOperationClaim userOperationClaim = new UserOperationClaim
+                    {
+                        CompanyId = companyId,
+                        IsActive = true,
+                        OperationClaimId = claim.Id,
+                        Userid = user.Id
+                    };
+                    userOperationClaimService.Add(userOperationClaim);
+                }
+
+            }
             SendConfirmEmail(user);
             return new SuccesDataResult<User>(user, Constances.UserRegistered);
         }

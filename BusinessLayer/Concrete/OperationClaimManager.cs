@@ -48,7 +48,7 @@ namespace BusinessLayer.Concrete
         {
             return new SuccesDataResult<OperationClaim>(operationClaimDal.Getitem(x => x.Id ==id));
         }
-        [SecuredOperations("Admin")]
+       // [SecuredOperations("Admin")]
         public IDataResult<List<OperationClaim>> GetList()
         {
             return new SuccesDataResult<List<OperationClaim>>(operationClaimDal.GetList());

@@ -7,6 +7,7 @@ using Core.entities.Concrete;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
 using DataAccesLayer.Abstract;
+using EntityLayer.DTOs.UserCompany;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,12 @@ namespace BusinessLayer.Concrete
         {
             return userDal.GetClaims(user, companyId);
         }
+        [SecuredOperations("User.crud,Admin")]
+        public IDataResult<List<UserCompanyListDto>> GetUserCompanyList(int companyId)
+        {
+            return new SuccesDataResult<List<UserCompanyListDto>>(userDal.GetUserCompanyList(companyId));
+        }
+
         [SecuredOperations("User.crud")]
         public IResult Update(User user)
         {

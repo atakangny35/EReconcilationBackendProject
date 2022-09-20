@@ -42,6 +42,7 @@ namespace DataAccesLayer.Concrete.EntityFramework
                              {
                                  Userid = uoc.Userid,
                                  OperationClaimDescription = oc.Description,
+                                 OperationClaimName = oc.Name,
                                  CompanyId = uoc.CompanyId,
                                  OperationClaimId = oc.Id,
                                  Id = uoc.Id
